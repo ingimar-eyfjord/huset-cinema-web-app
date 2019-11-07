@@ -24,6 +24,26 @@ const postCopy = template.cloneNode(true);
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + post.title.rendered)
 	
+//close the modal when clicked
+  const modal = document.querySelector(".modal-background");
+  modal.addEventListener("click", () => {
+    modal.classList.add("hide");
+  });
+	
+	postCopy.querySelector(".trailer_modal").addEventListener("click", () => {
+    fetch(`http://iesdesigner.eu/wordpress/wp-json/wp/v2/film${post.id}`)
+      .then(res => res.json())
+      .then(seetrailer);
+  });
+	
+  function seetrailer(myData) {
+    modal.querySelector(".modal-video").innerHTML = post.trailervideo;
+
+    //...
+    modal.classList.remove("hide");
+  }
+	
+	
 const eventdate = postCopy.querySelector(".choose-showdate");
 	eventdate.textContent=post.event_date;
 	

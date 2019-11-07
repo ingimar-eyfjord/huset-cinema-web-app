@@ -1,28 +1,8 @@
 // JavaScript Document
-// for search, finish later or use live search function
-//window.addEventListener("DOMContentLoaded", init);
-//
-//function init(){
-//	const urlParam = new URLSearchParams(window.location.search);
-//	const search = urlParams.get("search");
-//	const id = urlParams.get("id");
-//
-//if(search){getSearchData();
-//		  }else if(id){
-//			  getSingleFilm();
-//		  }else {getFrontpageData();}}
-//
-//function getSearchData(){
-//	const urlParams = new URLSearchParams(window.location.search);
-//	const search = urlParams.get("search");
-//}
-//fetch()
-//
-
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
-	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/film")
+	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/film?_embed")
 	.then(res=>res.json())
 	.then(handleData)}
 function handleData(myData){
@@ -44,13 +24,10 @@ const eventdate = postCopy.querySelector(".showdate");
 	
 const price = postCopy.querySelector(".price");
 	price.textContent=post.price;
+
+
 	
-//This goes into the URL parametar created page//
-//const p = postCopy.querySelector("p");	
-//	p.innerHTML=post.content.rendered;
-//
-	
-// Here is the beginging
+// URL parameter
 	var a = postCopy.querySelector(".seemore"); 
 	a.href = `title.html?id=${post.id}`;
 
@@ -58,17 +35,19 @@ const price = postCopy.querySelector(".price");
 document.querySelector("#post").appendChild(postCopy)
 }
 
-// Here is the retreive function
-//window.onload = function() {
-////			try {
-//				var url_string = (window.location.href).toLowerCase();
-//				var url = new URL(url_string);
-//        		var id = url.searchParams.get("id");
-//				console.log(id);
-//
-//
-//	function appendInrestaurants(){
-//		if(nameData.gsx$id.$t === id)
-//		document.querySelector(".pagelayout").appendChild(copy);
-//	}
-//	appendInrestaurants()}
+function myFunction() {
+    var input, filter, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    li = document.getElementsByClassName("homepagefilminfo");
+		
+    for (i = 0; i < li.length; i++) {console.log(i);
+        a = li[i].getElementsByClassName("movietitle")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
