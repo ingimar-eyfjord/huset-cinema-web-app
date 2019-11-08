@@ -1,5 +1,4 @@
 // JavaScript Document
-
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
@@ -32,8 +31,31 @@ const price = postCopy.querySelector(".price");
 	var a = postCopy.querySelector(".seemore"); 
 	a.href = `title.html?id=${post.id}`;
 
-	
-document.querySelector("#post").appendChild(postCopy)
+// Appening only the ID of Genre
+//var url_string = (window.location.href).toLowerCase();
+//				var url = new URL(url_string);
+//        		var id = url.searchParams.get("id");
+////	console.log(id);
+//		function appendIngenre(){
+//		post.genre.forEach(a=>{
+//		if(parseInt(a) === parseInt(id))
+//		document.querySelector("#post").appendChild(postCopy);	
+//		})
+//	}
+//	appendIngenre()
+
+// Appening only the ID of Venue
+var url_venue_string = (window.location.href).toLowerCase();
+var venueurl = new URL(url_venue_string);
+var venueid = venueurl.searchParams.get("id");
+//	console.log(id);
+		function appendInvenue(){
+		post.venues.forEach(i=>{
+		if(parseInt(i) === parseInt(venueid))
+		document.querySelector("#post").appendChild(postCopy);	
+		})
+	}
+	appendInvenue()
 }
 
 
@@ -45,6 +67,7 @@ function seegenre(){
 	.then(handlemodalData)}
 function handlemodalData(myData){
 	myData.forEach(showgenre)
+
 }
 function showgenre(genre){
 const modal = document.querySelector(".genreModal").content;
@@ -53,12 +76,11 @@ const modal = document.querySelector(".genreModal").content;
 	const genreModal = document.querySelector(".genreModal");
 	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;}
 	
-	console.log(genre.parent);
 document.querySelector(".Genrefilter").addEventListener("click", seetrailer);
 
   function seetrailer(myData) {
     const genremodal = document.querySelector(".modal-background");
-	  
+
     //...
     genremodal.classList.remove("hide");
   }
@@ -78,7 +100,7 @@ function seevenue(){
 	.then(handlevenuelData)}
 function handlevenuelData(venueData){
 	venueData.forEach(showvenue)
-	console.log(parent);
+
 }
 function showvenue(venue){
 const modal = document.querySelector(".venueModal").content;
