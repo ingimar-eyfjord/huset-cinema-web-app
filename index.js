@@ -8,6 +8,7 @@ function getData(){
 function handleData(myData){
 	myData.forEach(showPost)
 }
+
 function showPost(post){
 const template = document.querySelector(".filmtemplate").content;
 const postCopy = template.cloneNode(true);
@@ -49,7 +50,7 @@ function showgenre(genre){
 const modal = document.querySelector(".genreModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
 	const genreModal = document.querySelector(".genreModal");
-	genreModal.innerHTML += `<h3 class="genrename">${genre.name}</h3>`;
+	genreModal.innerHTML += `<a><h3 class="genrename">${genre.name}</h3></a>`;
 	
 document.querySelector(".Genrefilter").addEventListener("click", seetrailer);
 
@@ -81,16 +82,22 @@ function showvenue(venue){
 const modal = document.querySelector(".venueModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
 	const genreVenue = document.querySelector(".venueModal");
-	genreVenue.innerHTML += `<h3 class="venuename">${venue.name}</h3>`;
+	genreVenue.innerHTML += `<a class="venuename"><h3>${venue.name}</h3></a>`;
 	
 document.querySelector(".Venuefilter").addEventListener("click", showvenuemodal);
 
   function showvenuemodal(venueData) {
-    const venuemodal = document.querySelector(".modal-background-venue");
+    const venuemodal = document.querySelector(".modal-background-venue");venuemodal.classList.remove("hide");}
 
+	function venuefilter(genreVenue){
+	venuefilter.forEach(filter)
+	function filter(){
+	var a = document.querySelector(".venuename"); 
+	a.href = `title.html?id=${venue.id}`;
+	console.log(genreVenue);	
     //...
-    venuemodal.classList.remove("hide");
-  }
+    
+  }}
 
 	//close the modal when clicked
   const genremodal = document.querySelector(".modal-background-venue");
@@ -99,6 +106,9 @@ document.querySelector(".Venuefilter").addEventListener("click", showvenuemodal)
   });
 }
 
+function filter(){
+	const search = urlParams.get("")
+}
 
 function myFunction() {
     var input, filter, li, a, i, txtValue;
