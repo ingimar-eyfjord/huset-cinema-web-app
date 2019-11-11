@@ -16,10 +16,31 @@
   </div>
 </div>
 	
-	<header class="logoheader"><a href="index.html"><img src="media/Icons/Logo.png" width="467" height="82" alt=""/></a>
+	<header>
+<div class="header"><a class="logoheader" href="index.html"><img src="media/Icons/Logo.png" width="467" height="82" alt=""/></a></div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+		
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li>Home <span>See all movies</span></li>
+      <li><a href="https://vanila.io" target="_blank">Company</a></li>
+      <li><a href="https://instagram.com/plavookac" target="_blank">Instagram</a></li>
+      <li><a href="https://twitter.com/plavookac" target="_blank">Coupons</a></li>
+      <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">Log In</a></li>
+      <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">Location</a></li>
+    </ul>
+	  
+  </div>
+	
 	</header>
+	
 	<section id="post-inside"></section>
-	<template class="insidefilmtemplate">	
+	<template class="insidefilmtemplate1">	
    		<section class="insidefilmtemplate">
     <img class="posterinside" src="media/dummy/images.jpg" width="288" height="432" alt=""/> 
 	<h1 class="inside-title">The rocky Horror Picture Show</h1>
@@ -46,15 +67,31 @@ Transylvania". The ensemble of convention
 attendees also includes servants Riff Raff, 
 his sister Magenta, and a groupie named 
 Columbia.</p>
+	<div class="glider-contain multiple slider">
+		<button class="glider-prev">
+		<i class="fa fa-chevron-left"></i>
+		</button>
 	
-	<section class="slider"> 
-
-	</section>
-			
-</section>
+		<button class="glider-next">
+		<i class="fa fa-chevron-right"></i>
+		</button>
+		</div>
+			</section>
 	</template>
 	
 	<script type="text/javascript" src="inside-post.js"></script>
+	<script src="glider.min.js"></script>
+	<script> 
+		
+	new Glider(document.querySelector('.glider'),{
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		draggable: true,
+		dots: "#dots",
+		arrows:{
+		prev: '.glider-prev',
+		next: '.glider-next'
+	}
 <!--	<script type="text/javascript" src="index.js"></script>-->
 </body>
 </html>

@@ -1,7 +1,5 @@
 // JavaScript Document
 
-var genreID = "";
-
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
@@ -35,6 +33,19 @@ const price = postCopy.querySelector(".price");
 	a.href = `title.html?id=${post.id}`;
 
 	
+//	post.slideshow.forEach(slide =>{
+//		
+//		
+//		document.querySelector(".slideshow").innerHTML += `<img src="${post.slideshow.guid}">`;
+//		
+//		
+//	})
+	
+	//
+//const slideshow = document.querySelector(".slideshow");
+//	post.forEach(q =>{q.innerHTML += `<img src="${post.slideshow.guid}">`;})
+	
+	
 document.querySelector("#post").appendChild(postCopy)
 }
 
@@ -53,7 +64,7 @@ const modal = document.querySelector(".genreModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
 	
 	if (genre.count > 0 && genre.parent === 30){
-		console.log(genre)
+		
 	const genreModal = document.querySelector(".genreModal");
 	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;
 	
@@ -118,7 +129,7 @@ function myFunction() {
     filter = input.value.toUpperCase();
     li = document.getElementsByClassName("homepagefilminfo");
 		
-    for (i = 0; i < li.length; i++) {console.log(i);
+    for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByClassName("movietitle")[0];
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {

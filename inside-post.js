@@ -2,14 +2,14 @@
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
-	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/film")
+	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/film?_embed")
 	.then(res=>res.json())
 	.then(handleData)}
 function handleData(myData){
 	myData.forEach(showPost)
 }
 function showPost(post){
-const template = document.querySelector(".insidefilmtemplate").content;
+const template = document.querySelector(".insidefilmtemplate1").content;
 const postCopy = template.cloneNode(true);
 	
 
@@ -29,6 +29,13 @@ const postCopy = template.cloneNode(true);
   modal.addEventListener("click", () => {
     modal.classList.add("hide");
   });
+	
+	post.slideshow.forEach(e=>{
+	
+		console.log(e)
+		postCopy.querySelector(".glider-contain").innerHTML += `<img class="image-container" src="${e.guid}">`;
+	})
+	
 	
 	postCopy.querySelector(".trailer_modal").addEventListener("click", () => {
     fetch(`http://iesdesigner.eu/wordpress/wp-json/wp/v2/film${post.id}`)
