@@ -1,5 +1,7 @@
 // JavaScript Document
 
+var genreID = "";
+
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
@@ -49,11 +51,15 @@ function handlemodalData(myData){
 function showgenre(genre){
 const modal = document.querySelector(".genreModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
-	if (genre.count > 0){
-	const genreModal = document.querySelector(".genreModal");
-	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;}
 	
-	console.log(genre.parent);
+	if (genre.count > 0 && genre.parent === 30){
+		console.log(genre)
+	const genreModal = document.querySelector(".genreModal");
+	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;
+	
+	}
+	
+	
 document.querySelector(".Genrefilter").addEventListener("click", seetrailer);
 
   function seetrailer(myData) {
@@ -78,14 +84,14 @@ function seevenue(){
 	.then(handlevenuelData)}
 function handlevenuelData(venueData){
 	venueData.forEach(showvenue)
-	console.log(parent);
 }
 function showvenue(venue){
 const modal = document.querySelector(".venueModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
 	const genreVenue = document.querySelector(".venueModal");
 	
-	if (venue.count > 0){
+	
+	if (venue.count > 0 && venue.name == "Cinema"){
 	genreVenue.innerHTML += `<a class="venuename" href = Venue.html?id=${venue.id}><h3>${venue.name}</h3></a>`;}
 	
 document.querySelector(".Venuefilter").addEventListener("click", showvenuemodal);
@@ -106,7 +112,6 @@ document.querySelector(".Venuefilter").addEventListener("click", showvenuemodal)
     genremodal.classList.add("hide");
   });
 }
-
 function myFunction() {
     var input, filter, li, a, i, txtValue;
     input = document.getElementById("myInput");

@@ -1,21 +1,19 @@
 @charset "utf-8";
 /* CSS Document */
 
-
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 body{
 	background-color: #DFF2FD;
 	padding: 0;
 	margin: 0;
+	margin-top: 1vh;
 }
 header{
 	display: flex;
 	justify-content: space-around;
 	padding: 1em;
 }
-header img{
-	max-width: 80vw;
-	height: auto;
-}
+
 nav{
 	width: 100vw;
 	display: flex;
@@ -23,6 +21,7 @@ nav{
 	justify-content: space-around;
 	align-items: baseline;
 }
+
 .infowrapper{
 	display: grid;
 	grid-template-columns: 50% 50%;
@@ -227,9 +226,13 @@ transform: translateX(50%);
 }
 .venuename{
 	text-align: center;
+	color: white;
+	text-decoration: none;
 }
 .genrename{
 	text-align: center;
+	color:white;
+	text-decoration: none;
 }
 .Venuefilter{
 	cursor: pointer;
@@ -237,6 +240,155 @@ transform: translateX(50%);
 .Genrefilter{
 	cursor: pointer;
 }
+
+/* Burger Menu */
+
+.header {
+	top: 0;
+	display:flex;
+	flex-flow: row;
+	align-content: space-around;
+	align-items: baseline;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    background-color:  #DFF2FD;
+    position: fixed;
+    height: 60px;
+    overflow: hidden;
+    z-index: 10;}
+
+.logoheader img{
+	justify-self:baseline;
+	max-width: 50vw;
+	height: auto;	 
+	transform: translate(50%, 50%);
+}
+.main {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-top: 60px;
+}
+.mainInner{
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.mainInner div{
+    display:table-cell;
+    vertical-align: middle;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+}
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 250px;
+	margin-top: 30px;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+    background: linear-gradient(180deg, #DFF2FD 0%, #3F5EFB 100%);
+}
+.sidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li{
+    list-style: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li span{
+    display: block;
+    font-size: 14px;
+    color: black;
+}
+.sidebarMenuInner li a{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+	position: fixed;
+}
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: black;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
 /*
 
     <img src="media/dummy/images.jpg" width="288" height="432" alt=""/> 
