@@ -24,6 +24,24 @@ const postCopy = template.cloneNode(true);
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + post.title.rendered)
 	
+	const lengthinfo = postCopy.querySelector(".lengthinfo");
+	lengthinfo.innerHTML = `<p>Length:&nbsp;${post.length}</p>`;
+	
+	
+	const censorship1 = postCopy.querySelector(".censorship");
+	censorship1.innerHTML = `<p>Censorship:&nbsp;${post.censorship1}</p>`;
+	
+	
+	
+	post.genreid.forEach(er=>{
+		let newEl = document.createElement("div")
+		
+		newEl.textContent  =`${er.post_title}, `;	
+		postCopy.querySelector(".genreInside").appendChild(newEl)
+	
+	})
+	
+	
 //close the modal when clicked
   const modal = document.querySelector(".modal-background");
   modal.addEventListener("click", () => {
@@ -31,9 +49,7 @@ const postCopy = template.cloneNode(true);
   });
 	
 	post.slideshow.forEach(e=>{
-	
-		console.log(e)
-		postCopy.querySelector(".glider-contain").innerHTML += `<img class="image-container" src="${e.guid}">`;
+		postCopy.querySelector(".glider").innerHTML += `<div class="image-container"> <img class="image-slide" src="${e.guid}"></div>`;
 	})
 	
 	
@@ -55,7 +71,7 @@ const eventdate = postCopy.querySelector(".choose-showdate");
 	eventdate.textContent=post.event_date;
 	
 const price = postCopy.querySelector(".price-inside");
-	price.textContent=post.price;
+	price.textContent= "Price: " + post.price + "  DKK";
 	
 	
 var url_string = (window.location.href).toLowerCase();

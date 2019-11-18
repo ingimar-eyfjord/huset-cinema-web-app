@@ -30,6 +30,14 @@ const price = postCopy.querySelector(".price");
 // URL parameter
 	var a = postCopy.querySelector(".seemore"); 
 	a.href = `title.html?id=${post.id}`;
+	
+	const cardinfo = postCopy.querySelector(".homepagefilminfo");
+  cardinfo.addEventListener("click", () => {
+   
+ window.open(`
+http://iesdesigner.eu/school-folder/2-semester/web-application/title.html?id=${post.id}`)	  
+  });
+
 
 // Appening only the ID of Genre
 var url_string = (window.location.href).toLowerCase();
@@ -40,25 +48,9 @@ var url_string = (window.location.href).toLowerCase();
 		post.genre.forEach(a=>{
 		if(parseInt(a) === parseInt(id))
 		document.querySelector("#post").appendChild(postCopy);	
-		})
-	}
+		})}
 	appendIngenre()
-
-// Appening only the ID of Venue
-//var url_venue_string = (window.location.href).toLowerCase();
-//var venueurl = new URL(url_venue_string);
-//var venueid = venueurl.searchParams.get("id");
-////	console.log(id);
-//		function appendInvenue(){
-//		post.venue.forEach(i=>{
-//		if(parseInt(i) === parseInt(venueid))
-//		document.querySelector("#postVenue").appendChild(postCopy);	
-//		})
-//	}
-//	appendInvenue()
 }
-
-
 //modal
 window.addEventListener("DOMContentLoaded", seegenre);
 function seegenre(){
@@ -67,20 +59,24 @@ function seegenre(){
 	.then(handlemodalData)}
 function handlemodalData(myData){
 	myData.forEach(showgenre)
-
 }
 function showgenre(genre){
 const modal = document.querySelector(".genreModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
-	if (genre.count > 0){
+	
+	if (genre.count > 0 && genre.parent === 30){
+		
 	const genreModal = document.querySelector(".genreModal");
-	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;}
+	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;
+	
+	}
+	
 	
 document.querySelector(".Genrefilter").addEventListener("click", seetrailer);
 
   function seetrailer(myData) {
     const genremodal = document.querySelector(".modal-background");
-
+	  
     //...
     genremodal.classList.remove("hide");
   }
@@ -100,14 +96,14 @@ function seevenue(){
 	.then(handlevenuelData)}
 function handlevenuelData(venueData){
 	venueData.forEach(showvenue)
-
 }
 function showvenue(venue){
 const modal = document.querySelector(".venueModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
 	const genreVenue = document.querySelector(".venueModal");
 	
-	if (venue.count > 0){
+	
+	if (venue.count > 0 && venue.name == "Cinema"){
 	genreVenue.innerHTML += `<a class="venuename" href = Venue.html?id=${venue.id}><h3>${venue.name}</h3></a>`;}
 	
 document.querySelector(".Venuefilter").addEventListener("click", showvenuemodal);

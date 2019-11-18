@@ -31,20 +31,16 @@ const price = postCopy.querySelector(".price");
 	var a = postCopy.querySelector(".seemore"); 
 	a.href = `title.html?id=${post.id}`;
 
-// Appening only the ID of Genre
-//var url_string = (window.location.href).toLowerCase();
-//				var url = new URL(url_string);
-//        		var id = url.searchParams.get("id");
-////	console.log(id);
-//		function appendIngenre(){
-//		post.genre.forEach(a=>{
-//		if(parseInt(a) === parseInt(id))
-//		document.querySelector("#post").appendChild(postCopy);	
-//		})
-//	}
-//	appendIngenre()
+
+const cardinfo = postCopy.querySelector(".homepagefilminfo");
+  cardinfo.addEventListener("click", () => {
+   
+ window.open(`
+http://iesdesigner.eu/school-folder/2-semester/web-application/title.html?id=${post.id}`)	  
+  });
 
 // Appening only the ID of Venue
+	
 var url_venue_string = (window.location.href).toLowerCase();
 var venueurl = new URL(url_venue_string);
 var venueid = venueurl.searchParams.get("id");
@@ -60,6 +56,7 @@ var venueid = venueurl.searchParams.get("id");
 
 
 //modal
+//modal
 window.addEventListener("DOMContentLoaded", seegenre);
 function seegenre(){
 	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/genre")
@@ -67,20 +64,24 @@ function seegenre(){
 	.then(handlemodalData)}
 function handlemodalData(myData){
 	myData.forEach(showgenre)
-
 }
 function showgenre(genre){
 const modal = document.querySelector(".genreModal").content;
 //const jsonmodalinfo = modal.cloneNode(true);
-	if (genre.count > 0){
+	
+	if (genre.count > 0 && genre.parent === 30){
+		
 	const genreModal = document.querySelector(".genreModal");
-	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;}
+	genreModal.innerHTML += `<a class="genrename" href = Genre.html?id=${genre.id}><h3>${genre.name}</h3></a>`;
+	
+	}
+	
 	
 document.querySelector(".Genrefilter").addEventListener("click", seetrailer);
 
   function seetrailer(myData) {
     const genremodal = document.querySelector(".modal-background");
-
+	  
     //...
     genremodal.classList.remove("hide");
   }
@@ -100,34 +101,36 @@ function seevenue(){
 	.then(handlevenuelData)}
 function handlevenuelData(venueData){
 	venueData.forEach(showvenue)
-
 }
 function showvenue(venue){
 const modal = document.querySelector(".venueModal").content;
-//const jsonmodalinfo = modal.cloneNode(true);
 	const genreVenue = document.querySelector(".venueModal");
-	
-	if (venue.count > 0){
+	if (venue.count > 0 && venue.name == "Cinema"){
 	genreVenue.innerHTML += `<a class="venuename" href = Venue.html?id=${venue.id}><h3>${venue.name}</h3></a>`;}
 	
 document.querySelector(".Venuefilter").addEventListener("click", showvenuemodal);
 
   function showvenuemodal(venueData) {
     const venuemodal = document.querySelector(".modal-background-venue");
-
-//	var a = document.querySelector(".venuename"); 
-//	a.href = `title.html?id=${venue.id}`;
-//	console.log(venue.id);	
-    //...
     venuemodal.classList.remove("hide");
   }
 
 	//close the modal when clicked
   const genremodal = document.querySelector(".modal-background-venue");
-  genremodal.addEventListener("click", () => {
-    genremodal.classList.add("hide");
+  genremodal.addEventListener("click", () => {genremodal.classList.add("hide");
   });
 }
+
+//// See sidebarmodal
+//document.querySelector(".sidebarIconToggle").addEventListener("click", showsidebarmodal);
+//function showsidebarmodal(){
+//	const sidebarmodal = document.querySelector(".sidebarmodalbackground");
+//    sidebarmodal.classList.remove("hide");
+//  }
+// const sidebarmodal = document.querySelector(".sidebarmodalbackground");
+//  sidebarmodal.addEventListener("click", () => {sidebarmodal.classList.add("hide");
+//  });
+
 
 function myFunction() {
     var input, filter, li, a, i, txtValue;

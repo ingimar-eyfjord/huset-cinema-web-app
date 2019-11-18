@@ -5,9 +5,10 @@
 	
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Untitled Document</title>
+<title>Husets Biograf</title>
 </head>
-<link rel="stylesheet" href="stylesheet.css">
+	
+	<link rel="stylesheet" href="stylesheet.css">
 <body>
 	
 	<div class="modal-background hide">
@@ -16,8 +17,9 @@
   </div>
 </div>
 	
-	<header>
-<div class="header"><a class="logoheader" href="index.html"><img src="media/Icons/Logo.png" width="467" height="82" alt=""/></a></div>
+		<header>
+		<a class="logoheader" href="index.html"><img src="media/Icons/Logo.png" width="467" height="82" alt=""/></a>
+
   <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
   <label for="openSidebarMenu" class="sidebarIconToggle">
     <div class="spinner diagonal part-1"></div>
@@ -27,16 +29,16 @@
 		
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
-      <li>Home <span>See all movies</span></li>
-      <li><a href="https://vanila.io" target="_blank">Company</a></li>
-      <li><a href="https://instagram.com/plavookac" target="_blank">Instagram</a></li>
-      <li><a href="https://twitter.com/plavookac" target="_blank">Coupons</a></li>
-      <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">Log In</a></li>
-      <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">Location</a></li>
+	<li><a href="" target="_blank">Log In</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="" target="_blank">Company</a></li>
+      <li><a href="" target="_blank">My Tickets</a></li>
+      <li><a href="" target="_blank">Coupons</a></li>
+     
+      <li><a href="https://goo.gl/maps/88J7UakbQ5zvGoGP9" target="_blank">Location</a></li>
     </ul>
 	  
   </div>
-	
 	</header>
 	
 	<section id="post-inside"></section>
@@ -44,14 +46,11 @@
    		<section class="insidefilmtemplate">
     <img class="posterinside" src="media/dummy/images.jpg" width="288" height="432" alt=""/> 
 	<h1 class="inside-title">The rocky Horror Picture Show</h1>
-	<button class="purhcase">Buy tickets</button>
+	<button class="purhcase"><strong>BUY TICKETS</strong></button>
 	<div class="choose-showdate">21.11.19 / 21:00 - 23:00</div>
-	<div class="trailer_modal">See trailer</div>
+	<button class="trailer_modal"><strong>SEE TRAILER</strong></button>
 	<p class="price-inside">Price:</p>
-	<p class="lengthinfo">Lenght 01:30:00</p>
-	<p class="censorship">Censorship PG-13</p>
-	<p class="genre-inside">Genre: Cult</p>
-	<p class="logline">A criminologist narrates the tale of the newly 
+			<p class="logline">A criminologist narrates the tale of the newly 
 engaged couple, Brad Majors and Janet Weiss, 
 who find themselves lost and with a flat tire on
  a cold and rainy late November evening, 
@@ -67,31 +66,31 @@ Transylvania". The ensemble of convention
 attendees also includes servants Riff Raff, 
 his sister Magenta, and a groupie named 
 Columbia.</p>
-	<div class="glider-contain multiple slider">
-		<button class="glider-prev">
-		<i class="fa fa-chevron-left"></i>
-		</button>
+	<div class="additionalInfo">
 	
-		<button class="glider-next">
-		<i class="fa fa-chevron-right"></i>
-		</button>
+	<p class="lengthinfo"></p>
+	<p class="censorship">Censorship:</p>
+	<div class="genreInside">Genre:&nbsp;<div class="genreInside1"></div></div>
+	</div>
+	
+<div class="glider-contain multiple">
+
+	
+		<div class="glider">
+		
+			
+			
 		</div>
+		
+
+		
+			</div>
+			
 			</section>
 	</template>
+
+		<script type="text/javascript" src="inside-post.js"></script>
 	
-	<script type="text/javascript" src="inside-post.js"></script>
-	<script src="glider.min.js"></script>
-	<script> 
-		
-	new Glider(document.querySelector('.glider'),{
-		slidesToShow: 4,
-		slidesToScroll: 1,
-		draggable: true,
-		dots: "#dots",
-		arrows:{
-		prev: '.glider-prev',
-		next: '.glider-next'
-	}
-<!--	<script type="text/javascript" src="index.js"></script>-->
 </body>
+
 </html>

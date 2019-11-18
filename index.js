@@ -1,5 +1,21 @@
 // JavaScript Document
 
+window.addEventListener("DOMContentLoaded", getSlideshow);
+
+function getSlideshow(){
+	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/main_slideshow?_embed")
+	.then(res=>res.json())
+	.then(HandleSSdata)}
+function HandleSSdata(SSData){
+	SSData.forEach(showSS)
+}
+
+function showSS(ss){
+//	ss.featured_events.forEach(mss=>{
+//		document.querySelector(".reel").innerHTML += `<div class="image-container"> <img class="image-slide" src="${mss.guid}"></div>`;})
+}
+//showSS();
+
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
@@ -32,6 +48,12 @@ const price = postCopy.querySelector(".price");
 	var a = postCopy.querySelector(".seemore"); 
 	a.href = `title.html?id=${post.id}`;
 
+	const cardinfo = postCopy.querySelector(".postercontainer");
+  cardinfo.addEventListener("click", () => {
+   
+ window.open(`
+http://iesdesigner.eu/school-folder/2-semester/web-application/title.html?id=${post.id}`)	  
+  });
 	
 //	post.slideshow.forEach(slide =>{
 //		
