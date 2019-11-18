@@ -52,7 +52,7 @@ const price = postCopy.querySelector(".price");
   cardinfo.addEventListener("click", () => {
    
  window.open(`
-https://iesdesigner.eu/school-folder/2-semester/web-application/title.html?id=${post.id}`)	  
+https://ingimar-eyfjord.github.io/huset-cinema-web-app/title.html?id=${post.id}`)	  
   });
 	
 //	post.slideshow.forEach(slide =>{
