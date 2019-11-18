@@ -2,7 +2,7 @@
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
-	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/film?_embed")
+	fetch("https://iesdesigner.eu/wordpress/wp-json/wp/v2/film?_embed")
 	.then(res=>res.json())
 	.then(handleData)}
 function handleData(myData){
@@ -36,7 +36,7 @@ const cardinfo = postCopy.querySelector(".homepagefilminfo");
   cardinfo.addEventListener("click", () => {
    
  window.open(`
-http://iesdesigner.eu/school-folder/2-semester/web-application/title.html?id=${post.id}`)	  
+https://iesdesigner.eu/school-folder/2-semester/web-application/title.html?id=${post.id}`)	  
   });
 
 // Appening only the ID of Venue
@@ -59,7 +59,7 @@ var venueid = venueurl.searchParams.get("id");
 //modal
 window.addEventListener("DOMContentLoaded", seegenre);
 function seegenre(){
-	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/genre")
+	fetch("https://iesdesigner.eu/wordpress/wp-json/wp/v2/genre")
 	.then(res=>res.json())
 	.then(handlemodalData)}
 function handlemodalData(myData){
@@ -96,7 +96,7 @@ document.querySelector(".Genrefilter").addEventListener("click", seetrailer);
 //modal
 window.addEventListener("DOMContentLoaded", seevenue);
 function seevenue(){
-	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/venues")
+	fetch("https://iesdesigner.eu/wordpress/wp-json/wp/v2/venues")
 	.then(res=>res.json())
 	.then(handlevenuelData)}
 function handlevenuelData(venueData){

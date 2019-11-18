@@ -2,7 +2,7 @@
 window.addEventListener("DOMContentLoaded", getData);
 
 function getData(){
-	fetch("http://iesdesigner.eu/wordpress/wp-json/wp/v2/film?_embed")
+	fetch("https://iesdesigner.eu/wordpress/wp-json/wp/v2/film?_embed")
 	.then(res=>res.json())
 	.then(handleData)}
 function handleData(myData){
@@ -54,7 +54,7 @@ const postCopy = template.cloneNode(true);
 	
 	
 	postCopy.querySelector(".trailer_modal").addEventListener("click", () => {
-    fetch(`http://iesdesigner.eu/wordpress/wp-json/wp/v2/film${post.id}`)
+    fetch(`https://iesdesigner.eu/wordpress/wp-json/wp/v2/film${post.id}`)
       .then(res => res.json())
       .then(seetrailer);
   });
